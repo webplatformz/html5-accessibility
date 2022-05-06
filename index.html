@@ -30,19 +30,48 @@
             Basics & Best Practices</h1>
         </section>
         <section>
-            <h2>About me</h2>
-            <div class="column-container">
-                <div class="column-2">
-                    <img src="img//stre.jpg" class="portrait">
-                    <h3 class="margin-top">Stefan Reichhart</h3>
+            <section>
+                <h2>About me</h2>
+                <div class="column-container">
+                    <div class="column-2">
+                        <img src="img//stre.jpg" class="portrait">
+                        <h3 class="margin-top">Stefan Reichhart</h3>
+                    </div>
+                    <div class="column-2">
+                        <ul>
+                            <li>at Zühlke since 2016</li>
+                            <li>Web-Dev since 2002</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="column-2">
-                    <ul>
-                        <li>at Zühlke since 2016</li>
-                        <li>Web-Dev since 2002</li>
-                    </ul>
-                </div>
-            </div>
+            </section>
+            <section>
+                <h2>Industries</h2>
+                <ul>
+                    <li>Transportation</li>
+                    <li>Logistics, Online-Shopping/Marketing</li>
+                    <li>Industrial Printing</li>
+                    <li>Health insurance</li>
+                    <li>Small private banks</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Past Projects</h2>
+                <ul>
+                    <li>Web-Shops</li>
+                    <li>Logistics & Warehouse Management</li>
+                    <li>(integrated) CMS & CRM Solutions</li>
+                    <li>Web-Portals, Magazines</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Past Technologies</h2>
+                <ul>
+                    <li>Java, Angular</li>
+                    <li>Smalltalk, Python</li>
+                    <li>Html, Css, Javascript, JAM-Stack</li>
+                </ul>
+            </section>
         </section>
         <section>
             <h2>Disclaimer</h2>
@@ -52,27 +81,341 @@
                 <li>definitely incomplete</li>
                 <li>not a dedicated Expert in Apple VoiceOver</li>
             </ul>
-            <p>&#x2192; Distilled knowledge from past projects</p>
+            <p>made with <a href="https://revealjs.com/#/">reveal.js</a></p>
+            <div class="tip fragment">Distilled knowledge from past projects only</div>
         </section>
         <section>
             <h2>Topics</h2>
-            <ul>
-                <li>Challenges</li>
-                <li>Standards, Guildelines</li>
-                <li>Semantics</li>
-                <li>Specific Tags, Attributes</li>
-                <li>Specific Problems & Solutions</li>
-                <li>Best Practices</li>
-                <li>ARIA</li>
-            </ul>
+            <div class="column-container">
+                <div class="column-2">
+                    <ul>
+                        <li>Challenges</li>
+                        <li>Standard</li>
+                        <li>Semantics</li>
+                        <li>Specific Tags, Attributes</li>
+                    </ul>
+                </div>
+                <div class="column-2">
+                    <ul>
+                        <li>Specific Problems & Solutions</li>
+                        <li>Best Practices</li>
+                        <li>ARIA</li>
+                    </ul>
+                </div>
+            </div>
         </section>
         <section>
-            <h2>References</h2>
-            <ul>
-                <li><a href="https://developer.mozilla.org/en-US/docs/Learn/Accessibility">MDN Accessibility</a></li>
-                <li><a href="https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Cross_browser_testing/Accessibility#screenreaders">MDN Testing Screenreaders</a></li>
-                <li><a href="https://webaim.org/">WebAIM</a></li>
-            </ul>
+            <section>
+                <h2>Challenges</h2>
+                <ul>
+                    <li>Vision</li>
+                    <li>Mobility</li>
+                    <li>Cognition</li>
+                    <li>Auditory</li>
+                    <li>...</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Focus</h2>
+                <ul>
+                    <li>Who is the audience ?</li>
+                    <li>What disabilities do they have ?</li>
+                    <li>Read-only vs Interaction</li>
+                    <li>...</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Prioritize on Functionality</h2>
+                <ul>
+                    <li>Primary (must-have)</li>
+                    <li>Secondary</li>
+                    <li>Supplementary</li>
+                    <li>...</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Best Practice</h2>
+                <ol>
+                    <li>Semantic HTML 5</li>
+                    <li>ARIA</li>
+                </ol>
+            </section>
+            <section>
+                <h2>ARIA</h2>
+                <ol>
+                    <li>Does not solve everything (auto-)magically</li>
+                    <li>Many drawbacks</li>
+                </ol>
+                <div class="tip fragment">Development & maintenance costs !</div>
+                <div class="tip fragment">Prioritize !</div>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Standard</h2>
+                <ul>
+                    <li>WAI = Web Accessibility Initiative (~ W3C)</li>
+                    <li>WCAG = Web Content Accessibility Guidelines</li>
+                </ul>
+                <div class="tip fragment">There is no Standard - just guidelines !</div>
+            </section>
+            <section>
+                <h2>WCAG</h2>
+                <ul>
+                    <li>Multiple versions</li>
+                    <li>Incremental enhancements & adjustments</li>
+                    <li>Depending on the (X)HTML version in use</li>
+                </ul>
+                <div class="tip fragment">Not mandatory, not binding, no guarantee for success !</div>
+            </section>
+            <section>
+                <h2>Screenreaders in 20xx</h2>
+                <ul>
+                    <li>Limited to text only: <strong>fixed</strong></li>
+                    <li>Not aware of interaction: <strong>fixed</strong></li>
+                    <li>No support for Javascript: <strong>fixed</strong></li>
+                    <li>Not aware of animations: <strong>fixed</strong></li>
+                </ul>
+                <div class="tip fragment">Getting better & smarter every year</div>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>(General) Behaviour of Screenreaders</h2>
+                <ul>
+                    <li><strong>Recall:</strong> There is no standard !</li>
+                    <li>Every Screenreader behaves slightly different</li>
+                    <li>They might/will announce certain tags and attributes</li>
+                </ul>
+                <div class="tip fragment">Do not abuse tags for style & layout !</div>
+            </section>
+            <section>
+                <h2>Announcing tags</h2>
+                <ul>
+                    <li><code class="code">&lt;nav&gt;</code> "main navigation"</li>
+                    <li><code class="code">&lt;aside&gt;</code> "side-content" / "complementary content"</li>
+                    <li><code class="code">&lt;h1&gt;</code> "page title" / "main title"</li>
+                    <li><code class="code">&lt;h2-6&gt;</code> "sub title"</li>
+                    <li><code class="code">&lt;article&gt;</code> "article"</li>
+                </ul>
+                <div class="tip fragment">At most one &nbsp;<code>&lt;nav&gt;</code>&nbsp;and&nbsp;<code>&lt;h1&gt;</code></div>
+            </section>
+            <section>
+                <h2>Announcing tags</h2>
+                <ul>
+                    <li><code class="code">&lt;a&gt;</code> "link" / "clickable"</li>
+                    <li><code class="code">&lt;img&gt;</code> "image"</li>
+                    <li><code class="code">&lt;a&gt;&lt;img&gt;</code> "link graphic"</li>
+                    <li><code class="code">&lt;bold&gt;</code> "bold"</li>
+                    <li><code class="code">&lt;em&gt;</code> "emphasized"</li>
+                    <li>...</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Announcing attributes</h2>
+                <p>They might/will announce certain attributes</p>
+                <ul>
+                    <li><code class="code">&lt;a NO_ALT&gt;</code> "link to ${href}" :(</li>
+                    <li><code class="code">&lt;a&gt;&lt;img NO_ALT&gt;</code> "link to ${href}" :(</li>
+                    <li><code class="code">role="search"</code> "start of search" / "end of search"</li>
+                    <li><code class="code">type="tel"</code> "input of type telephone number"</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Announcing pitfalls</h2>
+                <ul>
+                    <li>If no <span class="code">alt</span> is provided they might read the <span class="code">href</span></li>
+                    <li>Omit redundant prefix "link to" or "image of" in <span class="code">alt</span></li>
+                    <li><code class="code">&lt;table&gt</code> and tabular-like <code class="code">&lt;div&gt</code>-structures</li>
+                    <li>Never ever nest <code class="code">&lt;article&gt</code></li>
+                    <li>Never ever nest <code class="code">&lt;nav&gt</code></li>
+                </ul>
+                <div class="tip fragment">Good accessibility depends on meaningful structure & content !</div>
+            </section>
+            <section>
+                <h2>Announcing pitfalls</h2>
+                <p>Depending on the context, many ARIA tags are obsolete/redundant due to HTML 5</p>
+                <ul>
+                    <li><code class="code">&lt;input type="tel"</code> aria-label, labeledby, describedby</li>
+                    <li>...</li>
+                </ul>
+                <div class="tip fragment">KISS - avoid redundancy, reduce code clutter</div>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>(General) Best Practice</h2>
+                <ul>
+                    <li>Start small</li>
+                    <li>Keep it simple</li>
+                    <li>Be minimalistic</li>
+                    <li>Go for <strong>meaningful</strong> semantic HTML</li>
+                    <li>Provide "Fallbacks"</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Personal Preference</h2>
+                <ul>
+                    <li>Strict (X)HTML 5</li>
+                    <li>Strict Javascript only</li>
+                    <li>Strict Css only</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Pro & Cons of Strictness</h2>
+                <div class="column-container">
+                    <div class="column-2">
+                        <ul>
+                            <li>No empty tags</li>
+                            <li>No empty attributes</li>
+                            <li>No non-closing tags</li>
+                            <li>No invalid html, css, js</li>
+                            <li>Strict quoting</li>
+                            <li>Strict encoding</li>
+                        </ul>
+                    </div>
+                    <div class="column-2">
+                        <ul>
+                            <li>More effort</li>
+                            <li>Incompatibility</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tip fragment">Maximum validity, predictability, security</div>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Semantic HTML</h2>
+                <ul>
+                    <li>New tags</li>
+                    <li>New attributes</li>
+                    <li>New ways for extensions</li>
+                    <li>...</li>
+                </ul>
+                <p>=> Search the Web for all the new HTML 5 additions ...</p>
+                <div class="tip fragment">Semantic HTML != Meaningful</div>
+            </section>
+            <section>
+                <h2>Semantic & meanigful HTML</h2>
+                <ul>
+                    <li>DOM Structure</li>
+                    <li>No excessive/useless tags & attributes</li>
+                    <li>No omission of relevant tags & attributes</li>
+                </ul>
+                <div class="tip fragment">Screenreaders evaluate (mostly only) the structure of tags & attributes</div>
+            </section>
+            <section>
+                <h2>Document</h2>
+                <p>You MUST provide a valid context for the document</p>
+                <ul>
+                    <li><code class="code">&lt;!doctype html&gt;</code></li>
+                    <li><code class="code">&lt;html lang="en"&gt;</code></li>
+                    <li><code class="code">&lt;meta charset="utf-8"&gt;</code></li>
+                </ul>
+                <div class="tip fragment">Changing this after initial load might not work properly</div>
+            </section>
+            <section>
+                <h2>noscript</h2>
+                <p>Forget about <code class="code">&lt;noscript&gt;</code> - that is about javascript not accessibility !</p>
+                <div class="tip fragment">Modern Screenreaders should be able to deal with Javascript</div>
+            </section>
+            <section>
+                <h2>noscript ... BUT</h2>
+                <p>A reader-friendly, clutter-free view is mostly appreciated by people with disabilities ;)</p>
+                <div class="tip fragment">KISS</div>
+            </section>
+            <section>
+                <h2>Heading</h2>
+            </section>
+            <section>
+                <h2>Navigation</h2>
+            </section>
+            <section>
+                <h2>Content Structure</h2>
+            </section>
+            <section>
+                <h2>Anchors, Buttons, ...</h2>
+            </section>
+            <section>
+                <h2>Lists</h2>
+            </section>
+            <section>
+                <h2>Form</h2>
+            </section>
+            <section>
+                <h2>Media</h2>
+            </section>
+            <section>
+                <h2>Table</h2>
+            </section>
+            <section>
+                <h2>Semantic pitfalls</h2>
+                <p>Never ever nest the following tags ...</p>
+                <ul>
+                    <li><code class="code">&lt;article&gt</code></li>
+                    <li><code class="code">&lt;nav&gt</code></li>
+                </ul>
+                <div class="tip fragment">At most one&nbsp;<code class="code">&lt;nav&gt</code>&nbsp;per page</div>
+            </section>
+            <section>
+                <h2>Semantic pitfalls</h2>
+                <p>Never ever do meaningless combinations like ...</p>
+                <ul>
+                    <li><code class="code">&lt;p&gt&lt;article&gt</code>...</li>
+                    <li><code class="code">&lt;p&gt&lt;li&gt</code>...</li>
+                    <li><code class="code">&lt;p&gt&lt;ul|ol&gt&lt;li&gt</code>...</li>
+                    <li><code class="code">&lt;li&gt</code> without enclosing <code class="code">&lt;ul|ol&gt</code></li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Development</h2>
+                <ul>
+                    <li>Small (static & dynamic) HTML pages</li>
+                    <li>(Re)validate, (Re)iterate</li>
+                    <li>One change after another</li>
+                </ul>
+                <div class="tip fragment">Trial & Error due to the lack of hard standard</div>
+            </section>
+            <section>
+                <h2>Testing</h2>
+                <ul>
+                    <li>Lint for Accessibility (syntax only)</li>
+                    <li>Browser Plugins</li>
+                </ul>
+                <div class="tip fragment">Quick feedback, but Very limited !</div>
+            </section>
+            <section>
+                <h2>End-User Testing</h2>
+                <ul>
+                    <li>Various Platforms</li>
+                    <li>Native Software (e.g. VoiceOver)</li>
+                    <li>Native Hardware (e.g. Screenreader)</li>
+                    <li>Test-Run with people having real disabilities</li>
+                </ul>
+                <div class="tip fragment">Automated Testing :(</div>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Anti-References</h2>
+                <ul>
+                    <li>W3cSchool</li>
+                    <li>TutorialPoint</li>
+                    <li>StackOverflow</li>
+                    <li>...</li>
+                </ul>
+            </section>
+            <section>
+                <h2>References</h2>
+                <ul>
+                    <li><a href="https://developer.mozilla.org/en-US/docs/Learn/Accessibility">MDN Accessibility</a></li>
+                    <li><a href="https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Cross_browser_testing/Accessibility#screenreaders">MDN Testing Screenreaders</a></li>
+                    <li><a href="https://webaim.org/">WebAIM</a></li>
+                </ul>
+            </section>
         </section>
         <section class="deck-slide">
             <h1>Questions?</h1>
