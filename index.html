@@ -27,7 +27,7 @@
     <div class="slides">
         <section class="deck-slide">
             <h1>HTML5 - Accessibility<br />
-            Basics & Best Practices</h1>
+                Basics & Best Practices</h1>
         </section>
         <section>
             <section>
@@ -67,9 +67,10 @@
             <section>
                 <h2>Past Technologies</h2>
                 <ul>
-                    <li>Java, Angular</li>
-                    <li>Smalltalk, Python</li>
-                    <li>Html, Css, Javascript, JAM-Stack</li>
+                    <li>Java & Angular Ecosystem</li>
+                    <li>Smalltalk & Python Ecosystem</li>
+                    <li>JAM-Stack</li>
+                    <li>Html, Css, Javascript</li>
                 </ul>
             </section>
         </section>
@@ -121,6 +122,7 @@
                     <li>Who is the audience ?</li>
                     <li>What disabilities do they have ?</li>
                     <li>Read-only vs Interaction</li>
+                    <li>Casual or Power-User ?</li>
                     <li>...</li>
                 </ul>
             </section>
@@ -226,9 +228,9 @@
                 <ul>
                     <li>If no <span class="code">alt</span> is provided they might read the <span class="code">href</span></li>
                     <li>Omit redundant prefix "link to" or "image of" in <span class="code">alt</span></li>
-                    <li><code class="code">&lt;table&gt</code> and tabular-like <code class="code">&lt;div&gt</code>-structures</li>
-                    <li>Never ever nest <code class="code">&lt;article&gt</code></li>
-                    <li>Never ever nest <code class="code">&lt;nav&gt</code></li>
+                    <li><code class="code">&lt;table&gt;</code> and tabular-like <code class="code">&lt;div&gt;</code>-structures</li>
+                    <li>Never ever nest <code class="code">&lt;article&gt;</code></li>
+                    <li>Never ever nest <code class="code">&lt;nav&gt;</code></li>
                 </ul>
                 <div class="tip fragment">Good accessibility depends on meaningful structure & content !</div>
             </section>
@@ -240,6 +242,19 @@
                     <li>...</li>
                 </ul>
                 <div class="tip fragment">KISS - avoid redundancy, reduce code clutter</div>
+            </section>
+            <section>
+                <h2>Best Practice</h2>
+                <ol>
+                    <li>Tags for structure & layout</li>
+                    <li>Tags for meaning of elements</li>
+                    <li>Attributes for extra context</li>
+                </ol>
+            </section>
+            <section>
+                <h2>Best Practice</h2>
+                <p>A meaningful structure is more difficult to accomplish than adding attributes</p>
+                <p>BUT - a meaningful structure might already solve most (or all) critical issues</p>
             </section>
         </section>
         <section>
@@ -302,6 +317,7 @@
                     <li>DOM Structure</li>
                     <li>No excessive/useless tags & attributes</li>
                     <li>No omission of relevant tags & attributes</li>
+                    <li>Do not abuse tags for style & layout</li>
                 </ul>
                 <div class="tip fragment">Screenreaders evaluate (mostly only) the structure of tags & attributes</div>
             </section>
@@ -327,45 +343,230 @@
             </section>
             <section>
                 <h2>Heading</h2>
+                <p>Some Screanreaders might analyse & extract headings in order to generate an index of the page</p>
+                <ul>
+                    <li>Exactly one <code class="code">&lt;h1&gt;</code> per page</li>
+                    <li>Strict order (h1 > h2 > h3 ...) is mandatory</li>
+                    <li>Do not depend on default browser styles</li>
+                    <li>No invalid nesting <code class="code">&lt;h1&gt;&lt;h2&gt;</code>...</li>
+                </ul>
+                <div class="tip fragment">Strict order is also relevant for SEO.<br/>Google will punish you if you violate this !</div>
+            </section>
+            <section>
+                <h2>Heading</h2>
+                <ul>
+                    <li>Do not abuse existing headings(-styles) for "emphasis"</li>
+                    <li>Do not (ab)use <code class="code">&lt;bold&gt;</code>, <code class="code">&lt;strong&gt;</code>, <code class="code">&lt;em&gt;</code>, ... for titles</li>
+                    <li>Do not combine with <code class="code">&lt;bold&gt;</code>, <code class="code">&lt;strong&gt;</code>, <code class="code">&lt;em&gt;</code>, ...</li>
+                </ul>
+                <div class="tip fragment">Remember: Headings are probably announced as such</div>
             </section>
             <section>
                 <h2>Navigation</h2>
+                <ul>
+                    <li>Ideally at most one <code class="code">&lt;nav&gt;</code> per page</li>
+                    <li>At most one <code class="code">&lt;nav&gt;</code> inside container (<code class="code">&lt;main&gt;</code>, <code class="code">&lt;aside&gt;</code>, <code class="code">&lt;footer&gt;</code>, <code class="code">&lt;header&gt;</code>)</li>
+                    <li>Nesting <code class="code">&lt;nav&gt;</code> is valid, but not recommended</li>
+                    <li>Maybe use <code class="code">aria-label="Primary Navigation"</code> to differentiate</li>
+                </ul>
+                <div class="tip fragment">Too many navigation(-levels) can be very confusing due to announcing</div>
             </section>
             <section>
-                <h2>Content Structure</h2>
+                <h2>Navigation: "Skip-List/Navigation"</h2>
+                <ul>
+                    <li>At most one per page</li>
+                    <li>First element inside <code class="code">&lt;body&gt;</code></li>
+                    <li>Do not use <code class="code">display:none</code> or <code class="code">visibility:hidden</code></li>
+                </ul>
+                <pre>
+                    <code class="hljs html" data-trim contenteditable data-noescape spellcheck="false">
+                        &lt;nav class="skip-navigation"&gt;...&lt;/nav&gt;
+                        .skip-navigation {
+                            position: absolute;
+                            top: -100000px;
+                            left: -100000px;
+                        }
+                    </code>
+                </pre>
             </section>
             <section>
-                <h2>Anchors, Buttons, ...</h2>
+                <h2>Div</h2>
+                <p>"Ok" for grouping and structuring</p>
+                <ul>
+                    <li>Mostly ignored</li>
+                    <li>Could be anything</li>
+                    <li>Not (content) meaningful</li>
+                    <li>Never announced or highlighted by Screenreader</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Section</h2>
+                <p>Like <code class="code">&lt;div&gt;</code>, BUT semantic unit grouping related things</p>
+                <ul>
+                    <li>Top-level element (e.g. child of <code class="code">&lt;body&gt;</code>, <code class="code">&lt;main&gt;</code>, ...)</li>
+                    <li>Can be nested</li>
+                    <li>Avoid too many nesting levels</li>
+                    <li>Probably announced by Screenreader</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Article</h2>
+                <p>Semantic unit containing everything that is related to it</p>
+                <ul>
+                    <li>It may contain multiple tags like <code class="code">&lt;p&gt;</code>, <code class="code">&lt;img&gt;</code>, ...</li>
+                    <li>Never ever nest <code class="code">&lt;article&gt;</code></li>
+                    <li>Announced by Screenreader</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Layout - Example Page Structure</h2>
+                <p>Page-level <code class="code">&lt;header&gt;</code>, <code class="code">&lt;main&gt;</code>, <code class="code">&lt;aside&gt;</code>, <code class="code">&lt;footer&gt;</code></p>
+                <pre>
+                    <code class="hljs html" data-trim contenteditable data-noescape spellcheck="false">
+                        &lt;body&gt;
+                            &lt;header&gt; ... # first
+                            &lt;main&gt; ...   # same level
+                            &lt;aside&gt; ...  # same level
+                            &lt;footer&gt; ... # last
+                        &lt;/body&gt;
+                    </code>
+                </pre>
+                <p>No wrapping/enclosing &lt;div&gt; !</p>
+            </section>
+            <section>
+                <h2>Layout - Example Section Structure</h2>
+                <p>Section-level <code class="code">&lt;header&gt;</code>, <code class="code">&lt;main&gt;</code>, <code class="code">&lt;aside&gt;</code>, <code class="code">&lt;footer&gt;</code></p>
+                <pre>
+                    <code class="hljs html" data-trim contenteditable data-noescape spellcheck="false">
+                        &lt;section&gt;
+                            &lt;header&gt; ... # first
+                            &lt;main&gt; ...   # same level
+                            &lt;footer&gt; ... # last
+                        &lt;/section&gt;
+                    </code>
+                </pre>
+                <p>No wrapping/enclosing &lt;div&gt; !</p>
+            </section>
+            <section>
+                <h2>Layout - Example Article Structure</h2>
+                <p>Article-level <code class="code">&lt;header&gt;</code>, <code class="code">&lt;main&gt;</code>, <code class="code">&lt;aside&gt;</code>, <code class="code">&lt;footer&gt;</code></p>
+                <pre>
+                    <code class="hljs html" data-trim contenteditable data-noescape spellcheck="false">
+                        &lt;article&gt;
+                            &lt;header&gt; ... # first
+                            &lt;main&gt; ...   # same level
+                            &lt;footer&gt; ... # last
+                        &lt;/article&gt;
+                    </code>
+                </pre>
+                <p>No wrapping/enclosing &lt;div&gt; !</p>
+            </section>^
+
+            <section>
+                <h2>Layout - Structure</h2>
+                <p>Don't use <code class="code">&lt;header&gt;</code>, <code class="code">&lt;main&gt;</code>, <code class="code">&lt;aside&gt;</code>, <code class="code">&lt;footer&gt;</code> for anything else</p>
+                <p>Do not nest <code class="code">&lt;header&gt;</code>, <code class="code">&lt;main&gt;</code>, <code class="code">&lt;aside&gt;</code>, <code class="code">&lt;footer&gt;</code></p>
+                <p>Only use if really necessary => complexity !</p>
             </section>
             <section>
                 <h2>Lists</h2>
+                <ul>
+                    <li>Ranking: <code class="code">&lt;ol&gt;</code> + <code class="code">&lt;li&gt;</code></li>
+                    <li>Order: <code class="code">&lt;ul&gt;</code> + <code class="code">&lt;li&gt;</code></li>
+                    <li>Map or Key/Value-Pair: <code class="code">&lt;dd&gt;</code> + <code class="code">&lt;dl&gt;</code></li>
+                    <li>Keep the nesting-level as small as possible</li>
+                </ul>
+                <p>Do not use <code class="code">&lt;table&gt;</code> for simple Key/Value Pairs</p>
+            </section>
+            <section>
+                <h2>Anchors, Buttons, ...</h2>
+                <ul>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
             </section>
             <section>
                 <h2>Form</h2>
+                <ul>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
             </section>
             <section>
                 <h2>Media</h2>
+                <ul>
+                    <li>Avoid external libraries for audio/video players</li>
+                    <li>Do not/never autoplay</li>
+                    <li>Use native <code class="code">&lt;audio&gt;</code> and <code class="code">&lt;video&gt;</code></li>
+                    <li>Avoid <code class="code">&lt;object&gt;</code>, <code class="code">&lt;embed&gt;</code>, <code class="code">&lt;canvas&gt;</code></li>
+                    <li>Supply <code class="code">&lt;track&gt;</code> for <code class="code">&lt;audio&gt;</code> and <code class="code">&lt;video&gt;</code></li>
+                </ul>
+            </section>
+            <section>
+                <h2>Media - figure</h2>
+                <p>This tag is meant for content only</p>
+                <ul>
+                    <li>Use <code class="code">&lt;figure&gt;</code> for graphics, diagrams, illustrations</li>
+                    <li>Always use an appropriate <code class="code">&lt;figcaption&gt;</code></li>
+                    <li>Do not use <code class="code">&lt;caption&gt;</code> (for tables only!)</li>
+                    <li>Do not use <code class="code">&lt;figure&gt;</code> for theme, design and/or background images</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Media - image</h2>
+                <p>This tag is meant for content only</p>
+                <ul>
+                    <li>Use <code class="code">&lt;img&gt;</code> for photos only</li>
+                    <li>Do not use <code class="code">&lt;img&gt;</code> for theme, design and/or background images</li>
+                </ul>
             </section>
             <section>
                 <h2>Table</h2>
+                <p>This tag is meant for content only</p>
+                <ul>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
             </section>
             <section>
                 <h2>Semantic pitfalls</h2>
                 <p>Never ever nest the following tags ...</p>
-                <ul>
-                    <li><code class="code">&lt;article&gt</code></li>
-                    <li><code class="code">&lt;nav&gt</code></li>
-                </ul>
-                <div class="tip fragment">At most one&nbsp;<code class="code">&lt;nav&gt</code>&nbsp;per page</div>
+                <div class="column-container">
+                    <div class="column-2">
+                        <ul>
+                            <li><code class="code">&lt;article&gt;</code></li>
+                            <li><code class="code">&lt;nav&gt;</code></li>
+                            <li><code class="code">&lt;p&gt;</code></li>
+                            <li>Inline Tags (e.g. <code class="code">&lt;a&gt;</code>)</li>
+                            <li><code class="code">&lt;table&gt;</code></li>
+                        </ul>
+                    </div>
+                    <div class="column-2">
+                        <ul>
+                            <li><code class="code">&lt;header&gt;</code></li>
+                            <li><code class="code">&lt;footer&gt;</code></li>
+                            <li><code class="code">&lt;main&gt;</code></li>
+                            <li><code class="code">&lt;aside&gt;</code></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tip fragment">At most one&nbsp;<code class="code">&lt;nav&gt;</code>&nbsp;per page</div>
             </section>
             <section>
                 <h2>Semantic pitfalls</h2>
-                <p>Never ever do meaningless combinations like ...</p>
+                <p>Never ever do meaningless combinations/nestings like ...</p>
                 <ul>
-                    <li><code class="code">&lt;p&gt&lt;article&gt</code>...</li>
-                    <li><code class="code">&lt;p&gt&lt;li&gt</code>...</li>
-                    <li><code class="code">&lt;p&gt&lt;ul|ol&gt&lt;li&gt</code>...</li>
-                    <li><code class="code">&lt;li&gt</code> without enclosing <code class="code">&lt;ul|ol&gt</code></li>
+                    <li><code class="code">&lt;p&gt&lt;article&gt;</code>...</li>
+                    <li><code class="code">&lt;p&gt&lt;li&gt;</code>...</li>
+                    <li><code class="code">&lt;p&gt&lt;ul|ol&gt&lt;li&gt;</code>...</li>
+                    <li><code class="code">&lt;li&gt;</code> without enclosing <code class="code">&lt;ul|ol&gt;</code></li>
+                    <li><code class="code">&lt;dl&gt;</code> without enclosing <code class="code">&lt;dd&gt;</code></li>
                 </ul>
             </section>
         </section>
@@ -407,13 +608,16 @@
                     <li>StackOverflow</li>
                     <li>...</li>
                 </ul>
+                <div class="tip fragment">Syntactically possible != meaningful</div>
             </section>
             <section>
                 <h2>References</h2>
                 <ul>
-                    <li><a href="https://developer.mozilla.org/en-US/docs/Learn/Accessibility">MDN Accessibility</a></li>
-                    <li><a href="https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Cross_browser_testing/Accessibility#screenreaders">MDN Testing Screenreaders</a></li>
                     <li><a href="https://webaim.org/">WebAIM</a></li>
+                    <li><a href="https://developer.mozilla.org/en-US/docs/Learn/Accessibility">MDN Accessibility</a></li>
+                    <li><a href="https://www.w3.org/WAI/standards-guidelines/wcag/">W3C-WAI: WCAG specs</a></li>
+                    <li><a href="https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Cross_browser_testing/Accessibility#screenreaders">MDN Testing Screenreaders</a></li>
+                    <li><a href="https://webkit.org/blog/3302/aria-and-accessibility-inspector/">Webkit Accessibility</a></li>
                 </ul>
             </section>
         </section>
