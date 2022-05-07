@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>02 Accessibility | HTML 5 - Accessibility</title>
+
+    <link rel="icon" href="../img/zuehlke_logo.jpg">
+    <link rel="stylesheet" href="../css/reveal.css">
+    <link rel="stylesheet" href="../css/theme/zuehlke.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../lib/css/monokai.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? '../css/print/pdf.css' : '../css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section class="deck-slide">
+            <h1>HTML 5 - Accessibility<br>02 Accessibility</h1>
+        </section>
+        <section>
+            <section>
+                <h2>Challenges</h2>
+                <ul>
+                    <li>Vision</li>
+                    <li>Mobility</li>
+                    <li>Cognition</li>
+                    <li>Auditory</li>
+                    <li>...</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Focus</h2>
+                <ul>
+                    <li>Who is the audience ?</li>
+                    <li>What disabilities do they have ?</li>
+                    <li>Read-only vs Interaction</li>
+                    <li>Casual or Power-User ?</li>
+                    <li>...</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Prioritize on Functionality</h2>
+                <ul>
+                    <li>Primary (must-have)</li>
+                    <li>Secondary</li>
+                    <li>Supplementary</li>
+                    <li>...</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Best Practice</h2>
+                <ol>
+                    <li>Semantic HTML 5</li>
+                    <li>ARIA</li>
+                </ol>
+            </section>
+            <section>
+                <h2>ARIA</h2>
+                <ol>
+                    <li>Does not solve everything (auto-)magically</li>
+                    <li>Many drawbacks</li>
+                </ol>
+                <div class="tip fragment">Development & maintenance costs !</div>
+                <div class="tip fragment">Prioritize !</div>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Standard</h2>
+                <ul>
+                    <li>WAI = Web Accessibility Initiative (~ W3C)</li>
+                    <li>WCAG = Web Content Accessibility Guidelines</li>
+                </ul>
+                <div class="tip fragment">There is no Standard - just guidelines !</div>
+            </section>
+            <section>
+                <h2>WCAG</h2>
+                <ul>
+                    <li>Multiple versions</li>
+                    <li>Incremental enhancements & adjustments</li>
+                    <li>Depending on the (X)HTML version in use</li>
+                </ul>
+                <div class="tip fragment">Not mandatory, not binding, no guarantee for success !</div>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>(General) Best Practice</h2>
+                <ul>
+                    <li>Start small</li>
+                    <li>Keep it simple</li>
+                    <li>Be minimalistic</li>
+                    <li>Go for <strong>meaningful</strong> semantic HTML</li>
+                    <li>Provide "Fallbacks"</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Personal Preference</h2>
+                <ul>
+                    <li>Strict (X)HTML 5</li>
+                    <li>Strict Javascript only</li>
+                    <li>Strict Css only</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Pro & Cons of Strictness</h2>
+                <div class="column-container">
+                    <div class="column-2">
+                        <ul>
+                            <li>No empty tags</li>
+                            <li>No empty attributes</li>
+                            <li>No non-closing tags</li>
+                            <li>No invalid html, css, js</li>
+                            <li>Strict quoting</li>
+                            <li>Strict encoding</li>
+                        </ul>
+                    </div>
+                    <div class="column-2">
+                        <ul>
+                            <li>More effort</li>
+                            <li>Incompatibility</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tip fragment">Maximum validity, predictability, security</div>
+            </section>
+        </section>
+        <section class="deck-slide">
+            <h1>Questions?</h1>
+        </section>
+    </div>
+</div>
+
+<script src="../js/reveal.js"></script>
+
+<script>
+    // More info https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        history: true,
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+            {src: '../plugin/markdown/marked.js'},
+            {src: '../plugin/markdown/markdown.js'},
+            {src: '../plugin/notes/notes.js', async: true},
+            {
+                src: '../plugin/highlight/highlight.js', async: true, callback: function () {
+                    hljs.initHighlightingOnLoad();
+                }
+            }
+        ]
+    });
+</script>
+</body>
+</html>

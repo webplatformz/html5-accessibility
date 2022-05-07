@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>05 Aria, HTML 5 & Pitfalls | HTML 5 - Accessibility</title>
+
+    <link rel="icon" href="../img/zuehlke_logo.jpg">
+    <link rel="stylesheet" href="../css/reveal.css">
+    <link rel="stylesheet" href="../css/theme/zuehlke.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../lib/css/monokai.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? '../css/print/pdf.css' : '../css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section class="deck-slide">
+            <h1>HTML 5 - Accessibility<br>05 Aria, HTML 5 & Pitfalls</h1>
+        </section>
+        <section>
+            <section>
+                <h2>ARIA - tabindex, autofocus</h2>
+                <p>Ideally: Support tabbing through large pages/sections</p>
+                <p>Be aware: You can very easily make it a lot worse !</p>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>ARIA - role</h2>
+                <ul>
+                    <li>Can be used on any tag</li>
+                    <li>Mostly redundant/obsolete with HTML 5</li>
+                    <li>Use only where useful / meaningful</li>
+                    <li>Screenreaders will probably ignore it</li>
+                </ul>
+            </section>
+            <section>
+                <h2>ARIA - role</h2>
+                <p>Good examples</p>
+                <pre>
+                    <code class="hljs html" data-trim contenteditable data-noescape spellcheck="false">
+                        &lt;fieldset role="search"&gt;...&lt;/fieldset&gt;
+                        &lt;div role="banner"&gt;...&lt;/div&gt;
+                        &lt;img role="livecam"...&gt;
+                        &lt;img role="decorative"...&gt;
+                        &lt;div role="glossary"&gt;...&lt;/div&gt;
+                        &lt;div role="alert"&gt;...&lt;/div&gt;
+                        &lt;div role="dialog"&gt;...&lt;/div&gt;
+                    </code>
+                </pre>
+            </section>
+            <section>
+                <h2>ARIA - role</h2>
+                <p>Bad examples</p>
+                <pre>
+                    <code class="hljs html" data-trim contenteditable data-noescape spellcheck="false">
+                        &lt;p role="text"&gt;...&lt;/p&gt;
+                        &lt;a role="link"&gt;...&lt;/p&gt;
+                        &lt;input type="radio" role="radio"&gt;...&gt;
+                        &lt;nav role="navigation"&gt;...&gt;
+                    </code>
+                </pre>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>HTML 5 - New tags</h2>
+                <ul>
+                    <li>Time: <code class="code">&lt;time&gt;12:34&lt;/time&gt;</code></li>
+                    <li>Postal Address: <code class="code">&lt;address&gt;...</code></li>
+                    <li>Numeric range: <code class="code">&lt;meter&gt;...</code></li>
+                    <li>...</li>
+                </ul>
+                <p>Microformat might be an alternative.</p>
+            </section>
+            <section>
+                <h2>HTML 5 - Old tags</h2>
+                <p>Don't use only CSS for those ...</p>
+                <ul>
+                    <li>Abbreviations: <code class="code">&lt;abbr&gt;...</code></li>
+                    <li>Citation: <code class="code">&lt;cite&gt;...</code></li>
+                    <li>Code: <code class="code">&lt;code&gt;...</code></li>
+                    <li>Super/Subscript: <code class="code">&lt;sup&gt;...</code>, <code class="code">&lt;sub&gt;...</code></li>
+                </ul>
+            </section>
+            <section>
+                <h2>HTML 5 - Emphasis</h2>
+                <ul>
+                    <li><code class="code">&lt;bold&gt;</code></li>
+                    <li><code class="code">&lt;strong&gt;</code></li>
+                    <li><code class="code">&lt;em&gt;</code></li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Semantic pitfalls</h2>
+                <p>Never ever nest the following tags ...</p>
+                <div class="column-container">
+                    <div class="column-2">
+                        <ul>
+                            <li><code class="code">&lt;article&gt;</code></li>
+                            <li><code class="code">&lt;nav&gt;</code></li>
+                            <li><code class="code">&lt;p&gt;</code></li>
+                            <li>Inline Tags (e.g. <code class="code">&lt;a&gt;</code>)</li>
+                            <li><code class="code">&lt;table&gt;</code></li>
+                        </ul>
+                    </div>
+                    <div class="column-2">
+                        <ul>
+                            <li><code class="code">&lt;header&gt;</code></li>
+                            <li><code class="code">&lt;footer&gt;</code></li>
+                            <li><code class="code">&lt;main&gt;</code></li>
+                            <li><code class="code">&lt;aside&gt;</code></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tip fragment">At most one&nbsp;<code class="code">&lt;nav&gt;</code>&nbsp;per page</div>
+            </section>
+            <section>
+                <h2>Semantic pitfalls</h2>
+                <p>Never ever do meaningless combinations/nestings like ...</p>
+                <ul>
+                    <li><code class="code">&lt;p&gt&lt;article&gt;</code>...</li>
+                    <li><code class="code">&lt;p&gt&lt;li&gt;</code>...</li>
+                    <li><code class="code">&lt;p&gt&lt;ul|ol&gt&lt;li&gt;</code>...</li>
+                    <li><code class="code">&lt;li&gt;</code> without enclosing <code class="code">&lt;ul|ol&gt;</code></li>
+                    <li><code class="code">&lt;dl&gt;</code> without enclosing <code class="code">&lt;dd&gt;</code></li>
+                </ul>
+            </section>
+            <section>
+                <h2>Semantic pitfalls</h2>
+                <ul>
+                    <li>Always provide <code class="code">alt=</code> for images</li>
+                    <li>Avoid <code class="code">href="javascript:..."</code></li>
+                    <li>Avoid empty <code class="code">href=""</code> or <code class="code">href="#"</code></li>
+                    <li>Avoid empty tags <code class="code">&lt;p&gt;  &lt;/p&gt;</code></li>
+                    <li>Contrast-ful styles for <code class="code">:focus</code> and <code class="code">:hover</code></li>
+                    <li>Ignored: <code class="code">display:none</code> and <code class="code">visibility:hidden</code></li>
+                </ul>
+            </section>
+        </section>
+        <section class="deck-slide">
+            <h1>Questions?</h1>
+        </section>
+    </div>
+</div>
+
+<script src="../js/reveal.js"></script>
+
+<script>
+    // More info https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        history: true,
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+            {src: '../plugin/markdown/marked.js'},
+            {src: '../plugin/markdown/markdown.js'},
+            {src: '../plugin/notes/notes.js', async: true},
+            {
+                src: '../plugin/highlight/highlight.js', async: true, callback: function () {
+                    hljs.initHighlightingOnLoad();
+                }
+            }
+        ]
+    });
+</script>
+</body>
+</html>

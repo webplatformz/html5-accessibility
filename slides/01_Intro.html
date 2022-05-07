@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>01 Intro | HTML 5 - Accessibility</title>
+
+    <link rel="icon" href="../img/zuehlke_logo.jpg">
+    <link rel="stylesheet" href="../css/reveal.css">
+    <link rel="stylesheet" href="../css/theme/zuehlke.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../lib/css/monokai.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? '../css/print/pdf.css' : '../css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section class="deck-slide">
+            <h1>HTML 5 - Accessibility<br>01 Intro</h1>
+        </section>
+        <section>
+            <section>
+                <h2>About me</h2>
+                <div class="column-container">
+                    <div class="column-2">
+                        <img src="../img/stre.jpg" class="portrait">
+                        <h3 class="margin-top">Stefan Reichhart</h3>
+                    </div>
+                    <div class="column-2">
+                        <ul>
+                            <li>at Zühlke since 2016</li>
+                            <li>Web-Dev since 2002</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <h2>Industries</h2>
+                <ul>
+                    <li>Transportation</li>
+                    <li>Logistics, Online-Shopping/Marketing</li>
+                    <li>Industrial Printing</li>
+                    <li>Health insurance</li>
+                    <li>Small private banks</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Past Projects</h2>
+                <ul>
+                    <li>Web-Shops</li>
+                    <li>Logistics & Warehouse Management</li>
+                    <li>(integrated) CMS & CRM Solutions</li>
+                    <li>Web-Portals, Magazines</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Past Technologies</h2>
+                <ul>
+                    <li>Java & Angular Ecosystem</li>
+                    <li>Smalltalk & Python Ecosystem</li>
+                    <li>JAM-Stack</li>
+                    <li>Html, Css, Javascript</li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <h2>Disclaimer</h2>
+            <ul>
+                <li>many accessibility-driven projects before Zühlke</li>
+                <li>maybe slightly outdated</li>
+                <li>definitely incomplete</li>
+                <li>not a dedicated Expert in Apple VoiceOver</li>
+            </ul>
+            <p>made with <a href="https://revealjs.com/#/">reveal.js</a></p>
+            <div class="tip fragment">Distilled knowledge from past projects only</div>
+        </section>
+        <section class="deck-slide">
+            <h1>Questions?</h1>
+        </section>
+    </div>
+</div>
+
+<script src="../js/reveal.js"></script>
+
+<script>
+    // More info https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        history: true,
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+            {src: '../plugin/markdown/marked.js'},
+            {src: '../plugin/markdown/markdown.js'},
+            {src: '../plugin/notes/notes.js', async: true},
+            {
+                src: '../plugin/highlight/highlight.js', async: true, callback: function () {
+                    hljs.initHighlightingOnLoad();
+                }
+            }
+        ]
+    });
+</script>
+</body>
+</html>

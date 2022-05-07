@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>06 Development & Testing | HTML 5 - Accessibility</title>
+
+    <link rel="icon" href="../img/zuehlke_logo.jpg">
+    <link rel="stylesheet" href="../css/reveal.css">
+    <link rel="stylesheet" href="../css/theme/zuehlke.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../lib/css/monokai.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? '../css/print/pdf.css' : '../css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section class="deck-slide">
+            <h1>HTML 5 - Accessibility<br>06 Development & Testing</h1>
+        </section>
+        <section>
+            <h2>Development</h2>
+            <ul>
+                <li>Small (static & dynamic) HTML pages</li>
+                <li>(Re)validate, (Re)iterate</li>
+                <li>One change after another</li>
+            </ul>
+            <div class="tip fragment">Trial & Error due to the lack of hard standard</div>
+        </section>
+        <section>
+            <h2>Testing</h2>
+            <ul>
+                <li>Lint for Accessibility (syntax only)</li>
+                <li>Browser Plugins</li>
+            </ul>
+            <div class="tip fragment">Quick feedback, but very limited !</div>
+        </section>
+        <section>
+            <h2>End-User Testing</h2>
+            <ul>
+                <li>Various Platforms</li>
+                <li>Native Software (e.g. VoiceOver)</li>
+                <li>Native Hardware</li>
+                <li>Test-Run with people having real disabilities</li>
+                <li>"Lynx" is perfect for non-JS alternatives</li>
+            </ul>
+            <div class="tip fragment">Automated Testing :(</div>
+        </section>
+        <section class="deck-slide">
+            <h1>Questions?</h1>
+        </section>
+    </div>
+</div>
+
+<script src="../js/reveal.js"></script>
+
+<script>
+    // More info https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        history: true,
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+            {src: '../plugin/markdown/marked.js'},
+            {src: '../plugin/markdown/markdown.js'},
+            {src: '../plugin/notes/notes.js', async: true},
+            {
+                src: '../plugin/highlight/highlight.js', async: true, callback: function () {
+                    hljs.initHighlightingOnLoad();
+                }
+            }
+        ]
+    });
+</script>
+</body>
+</html>

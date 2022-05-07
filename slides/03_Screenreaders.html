@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>03 Screenreaders | HTML 5 - Accessibility</title>
+
+    <link rel="icon" href="../img/zuehlke_logo.jpg">
+    <link rel="stylesheet" href="../css/reveal.css">
+    <link rel="stylesheet" href="../css/theme/zuehlke.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../lib/css/monokai.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? '../css/print/pdf.css' : '../css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section class="deck-slide">
+            <h1>HTML 5 - Accessibility<br>03 Screenreaders</h1>
+        </section>
+        <section>
+            <section>
+                <h2>(General) Behaviour of Screenreaders</h2>
+                <ul>
+                    <li><strong>Recall:</strong> There is no binding standard !</li>
+                    <li>Every Screenreader behaves slightly different</li>
+                    <li>They might/will announce certain tags and attributes</li>
+                </ul>
+                <div class="tip fragment">Do not abuse tags for style & layout !</div>
+            </section>
+            <section>
+                <h2>Screenreaders in 20xx</h2>
+                <ul>
+                    <li>Limited to text only: <strong>fixed</strong></li>
+                    <li>Not aware of interaction: <strong>fixed</strong></li>
+                    <li>No support for Javascript: <strong>fixed</strong></li>
+                    <li>Not aware of animations: <strong>fixed</strong></li>
+                </ul>
+                <div class="tip fragment">Getting better & smarter every year</div>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Announcing tags</h2>
+                <ul>
+                    <li><code class="code">&lt;nav&gt;</code> "main navigation"</li>
+                    <li><code class="code">&lt;aside&gt;</code> "side-content" / "complementary content"</li>
+                    <li><code class="code">&lt;h1&gt;</code> "page title" / "main title"</li>
+                    <li><code class="code">&lt;h2-6&gt;</code> "sub title"</li>
+                    <li><code class="code">&lt;article&gt;</code> "article"</li>
+                </ul>
+                <div class="tip fragment">At most one &nbsp;<code>&lt;nav&gt;</code>&nbsp;and&nbsp;<code>&lt;h1&gt;</code></div>
+            </section>
+            <section>
+                <h2>Announcing tags</h2>
+                <ul>
+                    <li><code class="code">&lt;a&gt;</code> "link" / "clickable"</li>
+                    <li><code class="code">&lt;img&gt;</code> "image"</li>
+                    <li><code class="code">&lt;a&gt;&lt;img&gt;</code> "link graphic"</li>
+                    <li><code class="code">&lt;bold&gt;</code> "bold"</li>
+                    <li><code class="code">&lt;em&gt;</code> "emphasized"</li>
+                    <li>...</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Announcing attributes</h2>
+                <p>They might/will announce certain attributes</p>
+                <ul>
+                    <li><code class="code">&lt;a NO_ALT&gt;</code> "link to ${href}" :(</li>
+                    <li><code class="code">&lt;a&gt;&lt;img NO_ALT&gt;</code> "link to ${href}" :(</li>
+                    <li><code class="code">role="search"</code> "start of search" / "end of search"</li>
+                    <li><code class="code">type="tel"</code> "input of type telephone number"</li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Announcing pitfalls</h2>
+                <ul>
+                    <li>If no <span class="code">alt</span> is provided they might read the <span class="code">href</span></li>
+                    <li>Omit redundant prefix "link to" or "image of" in <span class="code">alt</span></li>
+                    <li><code class="code">&lt;table&gt;</code> and tabular-like <code class="code">&lt;div&gt;</code>-structures</li>
+                    <li>Never ever nest <code class="code">&lt;article&gt;</code></li>
+                    <li>Never ever nest <code class="code">&lt;nav&gt;</code></li>
+                </ul>
+                <div class="tip fragment">Good accessibility depends on meaningful structure & content !</div>
+            </section>
+            <section>
+                <h2>Announcing pitfalls</h2>
+                <p>Depending on the context, many ARIA tags are obsolete/redundant due to HTML 5</p>
+                <ul>
+                    <li><code class="code">&lt;input type="tel"...&gt;</code> aria-label, labeledby, describedby</li>
+                    <li>...</li>
+                </ul>
+                <div class="tip fragment">K.I.S.S. - avoid redundancy, reduce code clutter</div>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Best Practice</h2>
+                <ol>
+                    <li>Tags for structure & layout</li>
+                    <li>Tags for meaning of elements</li>
+                    <li>Attributes for extra context</li>
+                </ol>
+            </section>
+            <section>
+                <h2>Best Practice</h2>
+                <p>A meaningful structure is more difficult to accomplish than adding attributes</p>
+                <p>BUT - a meaningful structure might already solve most (or all) critical issues</p>
+            </section>
+        </section>
+        <section class="deck-slide">
+            <h1>Questions?</h1>
+        </section>
+    </div>
+</div>
+
+<script src="../js/reveal.js"></script>
+
+<script>
+    // More info https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        history: true,
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+            {src: '../plugin/markdown/marked.js'},
+            {src: '../plugin/markdown/markdown.js'},
+            {src: '../plugin/notes/notes.js', async: true},
+            {
+                src: '../plugin/highlight/highlight.js', async: true, callback: function () {
+                    hljs.initHighlightingOnLoad();
+                }
+            }
+        ]
+    });
+</script>
+</body>
+</html>

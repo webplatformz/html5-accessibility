@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>04 Semantic HTML 5 | HTML 5 - Accessibility</title>
+
+    <link rel="icon" href="../img/zuehlke_logo.jpg">
+    <link rel="stylesheet" href="../css/reveal.css">
+    <link rel="stylesheet" href="../css/theme/zuehlke.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../lib/css/monokai.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? '../css/print/pdf.css' : '../css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section class="deck-slide">
+            <h1>HTML 5 - Accessibility<br>04 Semantic HTML 5</h1>
+        </section>
+        <section>
+            <section>
+                <h2>Semantic HTML</h2>
+                <ul>
+                    <li>New tags</li>
+                    <li>New attributes</li>
+                    <li>New ways for extensions</li>
+                    <li>...</li>
+                </ul>
+                <p>=> Search the Web for all the new HTML 5 additions ...</p>
+                <div class="tip fragment">Semantic HTML != Meaningful</div>
+            </section>
+            <section>
+                <h2>Semantic & meanigful HTML</h2>
+                <ul>
+                    <li>DOM Structure</li>
+                    <li>No excessive/useless tags & attributes</li>
+                    <li>No omission of relevant tags & attributes</li>
+                    <li>Do not abuse tags for style & layout</li>
+                </ul>
+                <div class="tip fragment">Screenreaders evaluate (mostly only) the structure of tags & attributes</div>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Document</h2>
+                <p>You MUST provide a valid context for the document</p>
+                <ul>
+                    <li><code class="code">&lt;!doctype html&gt;</code></li>
+                    <li><code class="code">&lt;html lang="en"&gt;</code></li>
+                    <li><code class="code">&lt;meta charset="utf-8"&gt;</code></li>
+                </ul>
+                <div class="tip fragment">Changing this after initial load might not work properly</div>
+            </section>
+            <section>
+                <h2>noscript</h2>
+                <p>Forget about <code class="code">&lt;noscript&gt;</code> - that is about javascript not accessibility !</p>
+                <div class="tip fragment">Modern Screenreaders should be able to deal with Javascript</div>
+            </section>
+            <section>
+                <h2>noscript ... BUT</h2>
+                <p>A reader-friendly, clutter-free view is mostly appreciated by people with disabilities ;)</p>
+                <div class="tip fragment">K.I.S.S.</div>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Heading</h2>
+                <p>Some Screanreaders might analyse & extract headings in order to generate an index of the page</p>
+                <ul>
+                    <li>Exactly one <code class="code">&lt;h1&gt;</code> per page</li>
+                    <li>Strict order (h1 > h2 > h3 ...) is mandatory</li>
+                    <li>Do not depend on default browser styles</li>
+                    <li>No invalid nesting <code class="code">&lt;h1&gt;&lt;h2&gt;</code>...</li>
+                </ul>
+                <div class="tip fragment">Strict order is also relevant for SEO.<br/>Google will punish you if you violate this !</div>
+            </section>
+            <section>
+                <h2>Heading</h2>
+                <ul>
+                    <li>Do not abuse existing headings(-styles) for "emphasis"</li>
+                    <li>Do not (ab)use <code class="code">&lt;bold&gt;</code>, <code class="code">&lt;strong&gt;</code>, <code class="code">&lt;em&gt;</code>, ... for titles</li>
+                    <li>Do not combine with <code class="code">&lt;bold&gt;</code>, <code class="code">&lt;strong&gt;</code>, <code class="code">&lt;em&gt;</code>, ...</li>
+                </ul>
+                <div class="tip fragment">Remember: Headings are probably announced as such</div>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Navigation</h2>
+                <ul>
+                    <li>Ideally at most one <code class="code">&lt;nav&gt;</code> per page</li>
+                    <li>At most one <code class="code">&lt;nav&gt;</code> inside container (<code class="code">&lt;main&gt;</code>, <code class="code">&lt;aside&gt;</code>, <code class="code">&lt;footer&gt;</code>, <code class="code">&lt;header&gt;</code>)</li>
+                    <li>Nesting <code class="code">&lt;nav&gt;</code> is valid, but not recommended</li>
+                    <li>Maybe use <code class="code">aria-label="Primary Navigation"</code> to differentiate</li>
+                </ul>
+                <div class="tip fragment">Too many navigation(-levels) can be very confusing due to announcing</div>
+            </section>
+            <section>
+                <h2>Navigation: "Skip-List/Navigation"</h2>
+                <ul>
+                    <li>At most one per page</li>
+                    <li>First element inside <code class="code">&lt;body&gt;</code></li>
+                    <li>Do not use <code class="code">display:none</code> or <code class="code">visibility:hidden</code></li>
+                </ul>
+                <pre>
+                    <code class="hljs html" data-trim contenteditable data-noescape spellcheck="false">
+                        &lt;nav class="skip-navigation"&gt;...&lt;/nav&gt;
+                        .skip-navigation {
+                            position: absolute;
+                            top: -100000px;
+                            left: -100000px;
+                        }
+                    </code>
+                </pre>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Layout - Example page structure</h2>
+                <p>Page-level <code class="code">&lt;header&gt;</code>, <code class="code">&lt;main&gt;</code>, <code class="code">&lt;aside&gt;</code>, <code class="code">&lt;footer&gt;</code></p>
+                <pre>
+                    <code class="hljs html" data-trim contenteditable data-noescape spellcheck="false">
+                        &lt;body&gt;
+                            &lt;header&gt; ... # first
+                            &lt;main&gt; ...   # same level
+                            &lt;aside&gt; ...  # same level
+                            &lt;footer&gt; ... # last
+                        &lt;/body&gt;
+                    </code>
+                </pre>
+                <p>No wrapping/enclosing &lt;div&gt; !</p>
+            </section>
+            <section>
+                <h2>Layout - Example section structure</h2>
+                <p>Section-level <code class="code">&lt;header&gt;</code>, <code class="code">&lt;main&gt;</code>, <code class="code">&lt;aside&gt;</code>, <code class="code">&lt;footer&gt;</code></p>
+                <pre>
+                    <code class="hljs html" data-trim contenteditable data-noescape spellcheck="false">
+                        &lt;section&gt;
+                            &lt;header&gt; ... # first
+                            &lt;main&gt; ...   # same level
+                            &lt;footer&gt; ... # last
+                        &lt;/section&gt;
+                    </code>
+                </pre>
+                <p>No wrapping/enclosing &lt;div&gt; !</p>
+            </section>
+            <section>
+                <h2>Layout - Example article structure</h2>
+                <p>Article-level <code class="code">&lt;header&gt;</code>, <code class="code">&lt;main&gt;</code>, <code class="code">&lt;aside&gt;</code>, <code class="code">&lt;footer&gt;</code></p>
+                <pre>
+                    <code class="hljs html" data-trim contenteditable data-noescape spellcheck="false">
+                        &lt;article&gt;
+                            &lt;header&gt; ... # first
+                            &lt;main&gt; ...   # same level
+                            &lt;footer&gt; ... # last
+                        &lt;/article&gt;
+                    </code>
+                </pre>
+                <p>No wrapping/enclosing &lt;div&gt; !</p>
+            </section>
+            <section>
+                <h2>Layout - General structure</h2>
+                <p>Don't use <code class="code">&lt;header&gt;</code>, <code class="code">&lt;main&gt;</code>, <code class="code">&lt;aside&gt;</code>, <code class="code">&lt;footer&gt;</code> for anything else</p>
+                <p>Do not nest <code class="code">&lt;header&gt;</code>, <code class="code">&lt;main&gt;</code>, <code class="code">&lt;aside&gt;</code>, <code class="code">&lt;footer&gt;</code></p>
+                <p>Only use if really necessary => complexity !</p>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Section</h2>
+                <p>Like <code class="code">&lt;div&gt;</code>, BUT semantic unit grouping related things</p>
+                <ul>
+                    <li>Top-level element (e.g. child of <code class="code">&lt;body&gt;</code>, <code class="code">&lt;main&gt;</code>, ...)</li>
+                    <li>Can be nested</li>
+                    <li>Avoid too many nesting levels</li>
+                    <li>Probably announced by Screenreader</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Article</h2>
+                <p>Semantic unit containing everything that is related to it</p>
+                <ul>
+                    <li>It may contain multiple tags like <code class="code">&lt;p&gt;</code>, <code class="code">&lt;img&gt;</code>, ...</li>
+                    <li>Never ever nest <code class="code">&lt;article&gt;</code></li>
+                    <li>Announced by Screenreader</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Div</h2>
+                <p>"Ok" for grouping and structuring (anywhere)</p>
+                <ul>
+                    <li>Mostly ignored</li>
+                    <li>Could be anything</li>
+                    <li>Not (content) meaningful</li>
+                    <li>Never announced or highlighted by Screenreader</li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Lists</h2>
+                <ul>
+                    <li>Ranking: <code class="code">&lt;ol&gt;</code> + <code class="code">&lt;li&gt;</code></li>
+                    <li>Order: <code class="code">&lt;ul&gt;</code> + <code class="code">&lt;li&gt;</code></li>
+                    <li>Map or Key/Value-Pair: <code class="code">&lt;dd&gt;</code> + <code class="code">&lt;dl&gt;</code></li>
+                    <li>Keep the nesting-level as small as possible</li>
+                </ul>
+                <p>Do not use <code class="code">&lt;table&gt;</code> for simple Key/Value Pairs</p>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Form</h2>
+                <ul>
+                    <li>Do not enforce a pointing device (e.g. mouse) upon the user</li>
+                    <li>Always provide an alternative way for input</li>
+                    <li>Do not clutter the form with irrelevant (semantic) elements</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Form</h2>
+                <ul>
+                    <li>Avoid fancy UI component libraries/frameworks (unless truely optimized for accessibility)</li>
+                    <li>Use mostly native HTML 5 elements</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Form - Must Do</h2>
+                <p>Proper correlation between form elements</p>
+                <ul>
+                    <li><code class="code">for=</code></li>
+                    <li><code class="code">id=</code> and/or <code class="code">name=</code></li>
+                    <li>Group related form inputs: <code class="code">&lt;formfield&gt;></code></li>
+                    <li>Purpose: <code class="code">role="search"</code></li>
+                </ul>
+                <div class="tip fragment">Most role= for form elements have become redundant</div>
+            </section>
+            <section>
+                <h2>Form - "natural reading flow"</h2>
+                <p>Enable a natural reading flow</p>
+                <ol>
+                    <li><code class="code">&lt;label&gt;</code></li>
+                    <li><code class="code">&lt;input|select|textarea&gt;</code></li>
+                </ol>
+                <p>Also avoid any clutter around/inbetween <code class="code">label</code> and <code class="code">input|select|textarea</code></p>
+            </section>
+            <section>
+                <h2>Form - Attributes</h2>
+                <p>Use "new" HTML 5 attributes and values</p>
+                <ul>
+                    <li>Input type: <code class="code">type=</code> (url, tel, email, date, datetime, month, time, color, range, ...)</li>
+                    <li>Input/Value constraints: <code class="code">required</code>, <code class="code">multiple</code>, <code class="code">readonly</code>, <code class="code">minlength=</code>, <code class="code">maxlength=</code>, <code class="code">min=</code>, <code class="code">max=</code>, ...</li>
+                    <li>Input example: <code class="code">placeholder=</code></li>
+                    <li>Avoid <code class="code">pattern="your-regex"</code></li>
+                </ul>
+                <div class="tip fragment">There is no alt= explaining the input format</div>
+            </section>
+            <section>
+                <h2>Form - Microformat</h2>
+                <p>Do not combine "Microformat" and <code class="code">&lt;form&gt;</code></p>
+                <p>Microformat intends to give extra meaning to content</p>
+                <ul>
+                    <li><code class="code">itemprop="street-address"</code></li>
+                    <li><code class="code">itemprop="postal-code"</code></li>
+                    <li><code class="code">rel="author"</code></li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Table</h2>
+                <p>This tag is meant for tabular-data content only !</p>
+                <ul>
+                    <li>Should have <code class="code">&lt;thead&gt;</code>, <code class="code">&lt;tbody&gt;</code>, <code class="code">&lt;tfoot&gt;</code> </li>
+                    <li>Header cells must use <code class="code">&lt;th&gt;</code></li>
+                </ul>
+            </section>
+            <section>
+                <h2>Table - Screenreaders</h2>
+                <p>Put tabular structures into CSS grid/flexbox !</p>
+                <ul>
+                    <li>Have become very smart</li>
+                    <li>May sniff-out tabular structures</li>
+                    <li>Tabular-structures will totally mess up reading mode</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Table - Reading semantics</h2>
+                <ul>
+                    <li>Read by column: <code class="code">&lt;tr&gt;&lt;th scope="col"&gt;...</code></li>
+                    <li>Read by row: <code class="code">&lt;tr&gt;&lt;th scope="row"&gt;...</code></li>
+                    <li>Avoid multiple header/footer rows/columns</li>
+                    <li>Avoid <code class="code">colspan=</code> and <code class="code">rowspan=</code></li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Anchors, Buttons</h2>
+                <p>Quick access through "tab"- and "enter"-key by default</p>
+                <ul>
+                    <li>Always announced by Screenreader</li>
+                    <li>No empty <code class="code">title=</code> or <code class="code">alt=</code></li>
+                    <li>Interaction/Form: <code class="code">&lt;button&gt;</code></li>
+                    <li>Navigation: <code class="code">&lt;a&gt;</code></li>
+                </ul>
+            </section>
+            <section>
+                <h2>Anchors, Buttons - Animations</h2>
+                <p>"Guide" the user to the newly visible content-section</p>
+                <p>This is easier said than done (e.g. VoiceOver)</p>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Media</h2>
+                <ul>
+                    <li>Avoid external libraries for audio/video players</li>
+                    <li>Do not/never autoplay</li>
+                    <li>Use native <code class="code">&lt;audio&gt;</code> and <code class="code">&lt;video&gt;</code></li>
+                    <li>Avoid <code class="code">&lt;object&gt;</code>, <code class="code">&lt;embed&gt;</code>, <code class="code">&lt;canvas&gt;</code></li>
+                    <li>Supply <code class="code">&lt;track&gt;</code> for <code class="code">&lt;audio&gt;</code> and <code class="code">&lt;video&gt;</code></li>
+                </ul>
+            </section>
+            <section>
+                <h2>Media - image</h2>
+                <p>This tag is meant for content only</p>
+                <ul>
+                    <li>Use <code class="code">&lt;img&gt;</code> for photos only</li>
+                    <li>Always provide <code class="code">alt=</code></li>
+                    <li>Do not use <code class="code">&lt;img&gt;</code> for theme, design and/or background images</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Media - figure</h2>
+                <p>This tag is meant for content only</p>
+                <ul>
+                    <li>Use <code class="code">&lt;figure&gt;</code> for graphics, diagrams, illustrations</li>
+                    <li>Always use an appropriate <code class="code">&lt;figcaption&gt;</code></li>
+                    <li>Do not use <code class="code">&lt;caption&gt;</code> (for tables only!)</li>
+                    <li>Do not use <code class="code">&lt;figure&gt;</code> for theme, design and/or background images</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Media - figure</h2>
+                <pre>
+                    <code class="hljs html" data-trim contenteditable data-noescape spellcheck="false">
+                        &lt;figure&gt;
+                            &lt;img src= alt= &gt; # image
+                            &lt;figcaption&gt;...&lt;/figcaption&gt; # description
+                        &lt;/figure&gt;
+                    </code>
+                </pre>
+                <p><code class="code">alt=</code> must still be set on <code class="code">&lt;img&gt;</code> !</p>
+            </section>
+            <section>
+                <h2>Media - picture</h2>
+                <p>Native responsiveness - No more library required ! :)</p>
+                <pre>
+                    <code class="hljs html" data-trim contenteditable data-noescape spellcheck="false">
+                        &lt;picture&gt;
+                            &lt;source media=... srcset=... &gt; # source 1
+                            ...
+                            &lt;source media=... srcset=... &gt; # source N
+                            &lt;img ... &gt; # fallback
+                        &lt;/picture&gt;
+                    </code>
+                </pre>
+                <p><code class="code">alt=</code> must be set on <code class="code">&lt;img&gt;</code> !</p>
+            </section>
+        </section>
+        <section class="deck-slide">
+            <h1>Questions?</h1>
+        </section>
+    </div>
+</div>
+
+<script src="../js/reveal.js"></script>
+
+<script>
+    // More info https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        history: true,
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+            {src: '../plugin/markdown/marked.js'},
+            {src: '../plugin/markdown/markdown.js'},
+            {src: '../plugin/notes/notes.js', async: true},
+            {
+                src: '../plugin/highlight/highlight.js', async: true, callback: function () {
+                    hljs.initHighlightingOnLoad();
+                }
+            }
+        ]
+    });
+</script>
+</body>
+</html>
