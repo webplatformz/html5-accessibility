@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -241,7 +241,7 @@
                     <li><code class="code">&lt;input type="tel"</code> aria-label, labeledby, describedby</li>
                     <li>...</li>
                 </ul>
-                <div class="tip fragment">KISS - avoid redundancy, reduce code clutter</div>
+                <div class="tip fragment">K.I.S.S. - avoid redundancy, reduce code clutter</div>
             </section>
             <section>
                 <h2>Best Practice</h2>
@@ -339,8 +339,10 @@
             <section>
                 <h2>noscript ... BUT</h2>
                 <p>A reader-friendly, clutter-free view is mostly appreciated by people with disabilities ;)</p>
-                <div class="tip fragment">KISS</div>
+                <div class="tip fragment">K.I.S.S.</div>
             </section>
+        </section>
+        <section>
             <section>
                 <h2>Heading</h2>
                 <p>Some Screanreaders might analyse & extract headings in order to generate an index of the page</p>
@@ -361,6 +363,8 @@
                 </ul>
                 <div class="tip fragment">Remember: Headings are probably announced as such</div>
             </section>
+        </section>
+        <section>
             <section>
                 <h2>Navigation</h2>
                 <ul>
@@ -389,16 +393,59 @@
                     </code>
                 </pre>
             </section>
+        </section>
+        <section>
             <section>
-                <h2>Div</h2>
-                <p>"Ok" for grouping and structuring</p>
-                <ul>
-                    <li>Mostly ignored</li>
-                    <li>Could be anything</li>
-                    <li>Not (content) meaningful</li>
-                    <li>Never announced or highlighted by Screenreader</li>
-                </ul>
+                <h2>Layout - Example page structure</h2>
+                <p>Page-level <code class="code">&lt;header&gt;</code>, <code class="code">&lt;main&gt;</code>, <code class="code">&lt;aside&gt;</code>, <code class="code">&lt;footer&gt;</code></p>
+                <pre>
+                    <code class="hljs html" data-trim contenteditable data-noescape spellcheck="false">
+                        &lt;body&gt;
+                            &lt;header&gt; ... # first
+                            &lt;main&gt; ...   # same level
+                            &lt;aside&gt; ...  # same level
+                            &lt;footer&gt; ... # last
+                        &lt;/body&gt;
+                    </code>
+                </pre>
+                <p>No wrapping/enclosing &lt;div&gt; !</p>
             </section>
+            <section>
+                <h2>Layout - Example section structure</h2>
+                <p>Section-level <code class="code">&lt;header&gt;</code>, <code class="code">&lt;main&gt;</code>, <code class="code">&lt;aside&gt;</code>, <code class="code">&lt;footer&gt;</code></p>
+                <pre>
+                    <code class="hljs html" data-trim contenteditable data-noescape spellcheck="false">
+                        &lt;section&gt;
+                            &lt;header&gt; ... # first
+                            &lt;main&gt; ...   # same level
+                            &lt;footer&gt; ... # last
+                        &lt;/section&gt;
+                    </code>
+                </pre>
+                <p>No wrapping/enclosing &lt;div&gt; !</p>
+            </section>
+            <section>
+                <h2>Layout - Example article structure</h2>
+                <p>Article-level <code class="code">&lt;header&gt;</code>, <code class="code">&lt;main&gt;</code>, <code class="code">&lt;aside&gt;</code>, <code class="code">&lt;footer&gt;</code></p>
+                <pre>
+                    <code class="hljs html" data-trim contenteditable data-noescape spellcheck="false">
+                        &lt;article&gt;
+                            &lt;header&gt; ... # first
+                            &lt;main&gt; ...   # same level
+                            &lt;footer&gt; ... # last
+                        &lt;/article&gt;
+                    </code>
+                </pre>
+                <p>No wrapping/enclosing &lt;div&gt; !</p>
+            </section>
+            <section>
+                <h2>Layout - General structure</h2>
+                <p>Don't use <code class="code">&lt;header&gt;</code>, <code class="code">&lt;main&gt;</code>, <code class="code">&lt;aside&gt;</code>, <code class="code">&lt;footer&gt;</code> for anything else</p>
+                <p>Do not nest <code class="code">&lt;header&gt;</code>, <code class="code">&lt;main&gt;</code>, <code class="code">&lt;aside&gt;</code>, <code class="code">&lt;footer&gt;</code></p>
+                <p>Only use if really necessary => complexity !</p>
+            </section>
+        </section>
+        <section>
             <section>
                 <h2>Section</h2>
                 <p>Like <code class="code">&lt;div&gt;</code>, BUT semantic unit grouping related things</p>
@@ -419,55 +466,17 @@
                 </ul>
             </section>
             <section>
-                <h2>Layout - Example Page Structure</h2>
-                <p>Page-level <code class="code">&lt;header&gt;</code>, <code class="code">&lt;main&gt;</code>, <code class="code">&lt;aside&gt;</code>, <code class="code">&lt;footer&gt;</code></p>
-                <pre>
-                    <code class="hljs html" data-trim contenteditable data-noescape spellcheck="false">
-                        &lt;body&gt;
-                            &lt;header&gt; ... # first
-                            &lt;main&gt; ...   # same level
-                            &lt;aside&gt; ...  # same level
-                            &lt;footer&gt; ... # last
-                        &lt;/body&gt;
-                    </code>
-                </pre>
-                <p>No wrapping/enclosing &lt;div&gt; !</p>
+                <h2>Div</h2>
+                <p>"Ok" for grouping and structuring (anywhere)</p>
+                <ul>
+                    <li>Mostly ignored</li>
+                    <li>Could be anything</li>
+                    <li>Not (content) meaningful</li>
+                    <li>Never announced or highlighted by Screenreader</li>
+                </ul>
             </section>
-            <section>
-                <h2>Layout - Example Section Structure</h2>
-                <p>Section-level <code class="code">&lt;header&gt;</code>, <code class="code">&lt;main&gt;</code>, <code class="code">&lt;aside&gt;</code>, <code class="code">&lt;footer&gt;</code></p>
-                <pre>
-                    <code class="hljs html" data-trim contenteditable data-noescape spellcheck="false">
-                        &lt;section&gt;
-                            &lt;header&gt; ... # first
-                            &lt;main&gt; ...   # same level
-                            &lt;footer&gt; ... # last
-                        &lt;/section&gt;
-                    </code>
-                </pre>
-                <p>No wrapping/enclosing &lt;div&gt; !</p>
-            </section>
-            <section>
-                <h2>Layout - Example Article Structure</h2>
-                <p>Article-level <code class="code">&lt;header&gt;</code>, <code class="code">&lt;main&gt;</code>, <code class="code">&lt;aside&gt;</code>, <code class="code">&lt;footer&gt;</code></p>
-                <pre>
-                    <code class="hljs html" data-trim contenteditable data-noescape spellcheck="false">
-                        &lt;article&gt;
-                            &lt;header&gt; ... # first
-                            &lt;main&gt; ...   # same level
-                            &lt;footer&gt; ... # last
-                        &lt;/article&gt;
-                    </code>
-                </pre>
-                <p>No wrapping/enclosing &lt;div&gt; !</p>
-            </section>^
-
-            <section>
-                <h2>Layout - Structure</h2>
-                <p>Don't use <code class="code">&lt;header&gt;</code>, <code class="code">&lt;main&gt;</code>, <code class="code">&lt;aside&gt;</code>, <code class="code">&lt;footer&gt;</code> for anything else</p>
-                <p>Do not nest <code class="code">&lt;header&gt;</code>, <code class="code">&lt;main&gt;</code>, <code class="code">&lt;aside&gt;</code>, <code class="code">&lt;footer&gt;</code></p>
-                <p>Only use if really necessary => complexity !</p>
-            </section>
+        </section>
+        <section>
             <section>
                 <h2>Lists</h2>
                 <ul>
@@ -478,24 +487,111 @@
                 </ul>
                 <p>Do not use <code class="code">&lt;table&gt;</code> for simple Key/Value Pairs</p>
             </section>
+        </section>
+        <section>
             <section>
-                <h2>Anchors, Buttons, ...</h2>
+                <h2>Form</h2>
                 <ul>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
+                    <li>Do not enforce a pointing device (e.g. mouse) upon the user</li>
+                    <li>Always provide an alternative way for input</li>
+                    <li>Do not clutter the form with irrelevant (semantic) elements</li>
                 </ul>
             </section>
             <section>
                 <h2>Form</h2>
                 <ul>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
+                    <li>Avoid fancy UI component libraries/frameworks (unless truely optimized for accessibility)</li>
+                    <li>Use mostly native HTML5 elements</li>
                 </ul>
             </section>
+            <section>
+                <h2>Form - Must Do</h2>
+                <p>Proper correlation between form elements</p>
+                <ul>
+                    <li><code class="code">for=</code></li>
+                    <li><code class="code">id=</code> and/or <code class="code">name=</code></li>
+                    <li>Group related form inputs: <code class="code">&lt;formfield&gt;></code></li>
+                    <li>Purpose: <code class="code">role="search"</code></li>
+                </ul>
+                <div class="tip fragment">Most role= for form elements have become redundant</div>
+            </section>
+            <section>
+                <h2>Form - "natural reading flow"</h2>
+                <p>Enable a natural reading flow</p>
+                <ol>
+                    <li><code class="code">&lt;label&gt;</code></li>
+                    <li><code class="code">&lt;input|select|textarea&gt;</code></li>
+                </ol>
+                <p>Also avoid any clutter around/inbetween <code class="code">label</code> and <code class="code">input|select|textarea</code></p>
+            </section>
+            <section>
+                <h2>Form - Attributes</h2>
+                <p>Use "new" HTML 5 attributes and values</p>
+                <ul>
+                    <li>Input type: <code class="code">type=</code> (url, tel, email, date, datetime, month, time, color, range, ...)</li>
+                    <li>Input/Value constraints: <code class="code">required</code>, <code class="code">multiple</code>, <code class="code">readonly</code>, <code class="code">minlength=</code>, <code class="code">maxlength=</code>, <code class="code">min=</code>, <code class="code">max=</code>, ...</li>
+                    <li>Input example: <code class="code">placeholder=</code></li>
+                    <li>Avoid <code class="code">pattern="your-regex"</code></li>
+                </ul>
+                <div class="tip fragment">There is no alt= explaining the input format</div>
+            </section>
+            <section>
+                <h2>Form - Microformat</h2>
+                <p>Do not combine "Microformat" and <code class="code">&lt;form&gt;</code></p>
+                <p>Microformat intends to give extra meaning to content</p>
+                <ul>
+                    <li><code class="code">itemprop="street-address"</code></li>
+                    <li><code class="code">itemprop="postal-code"</code></li>
+                    <li><code class="code">rel="author"</code></li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Table</h2>
+                <p>This tag is meant for tabular-data content only !</p>
+                <ul>
+                    <li>Should have <code class="code">&lt;thead&gt;</code>, <code class="code">&lt;tbody&gt;</code>, <code class="code">&lt;tfoot&gt;</code> </li>
+                    <li>Header cells must use <code class="code">&lt;th&gt;</code></li>
+                </ul>
+            </section>
+            <section>
+                <h2>Table - Screenreaders</h2>
+                <p>Put tabular structures into CSS grid/flexbox !</p>
+                <ul>
+                    <li>Have become very smart</li>
+                    <li>May sniff-out tabular structures</li>
+                    <li>Tabular-structures will totally mess up reading mode</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Table - Reading semantics</h2>
+                <ul>
+                    <li>Read by column: <code class="code">&lt;tr&gt;&lt;th scope="col"&gt;...</code></li>
+                    <li>Read by row: <code class="code">&lt;tr&gt;&lt;th scope="row"&gt;...</code></li>
+                    <li>Avoid multiple header/footer rows/columns</li>
+                    <li>Avoid <code class="code">colspan=</code> and <code class="code">rowspan=</code></li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Anchors, Buttons</h2>
+                <p>Quick access through "tab"- and "enter"-key by default</p>
+                <ul>
+                    <li>Always announced by Screenreader</li>
+                    <li>No empty <code class="code">title=</code> or <code class="code">alt=</code></li>
+                    <li>Interaction/Form: <code class="code">&lt;button&gt;</code></li>
+                    <li>Navigation: <code class="code">&lt;a&gt;</code></li>
+                </ul>
+            </section>
+            <section>
+                <h2>Anchors, Buttons - Animations</h2>
+                <p>"Guide" the user to the newly visible content-section</p>
+                <p>This is easier said than done (e.g. VoiceOver)</p>
+            </section>
+        </section>
+        <section>
             <section>
                 <h2>Media</h2>
                 <ul>
@@ -504,6 +600,15 @@
                     <li>Use native <code class="code">&lt;audio&gt;</code> and <code class="code">&lt;video&gt;</code></li>
                     <li>Avoid <code class="code">&lt;object&gt;</code>, <code class="code">&lt;embed&gt;</code>, <code class="code">&lt;canvas&gt;</code></li>
                     <li>Supply <code class="code">&lt;track&gt;</code> for <code class="code">&lt;audio&gt;</code> and <code class="code">&lt;video&gt;</code></li>
+                </ul>
+            </section>
+            <section>
+                <h2>Media - image</h2>
+                <p>This tag is meant for content only</p>
+                <ul>
+                    <li>Use <code class="code">&lt;img&gt;</code> for photos only</li>
+                    <li>Always provide <code class="code">alt=</code></li>
+                    <li>Do not use <code class="code">&lt;img&gt;</code> for theme, design and/or background images</li>
                 </ul>
             </section>
             <section>
@@ -517,23 +622,109 @@
                 </ul>
             </section>
             <section>
-                <h2>Media - image</h2>
-                <p>This tag is meant for content only</p>
+                <h2>Media - figure</h2>
+                <pre>
+                    <code class="hljs html" data-trim contenteditable data-noescape spellcheck="false">
+                        &lt;figure&gt;
+                            &lt;img src= alt= &gt; # image
+                            &lt;figcaption&gt;...&lt;/figcaption&gt; # description
+                        &lt;/figure&gt;
+                    </code>
+                </pre>
+                <p><code class="code">alt=</code> must still be set on <code class="code">&lt;img&gt;</code> !</p>
+            </section>
+            <section>
+                <h2>Media - picture</h2>
+                <p>Native responsiveness - No more library required ! :)</p>
+                <pre>
+                    <code class="hljs html" data-trim contenteditable data-noescape spellcheck="false">
+                        &lt;picture&gt;
+                            &lt;source media=... srcset=... &gt; # source 1
+                            ...
+                            &lt;source media=... srcset=... &gt; # source N
+                            &lt;img ... &gt; # fallback
+                        &lt;/picture&gt;
+                    </code>
+                </pre>
+                <p><code class="code">alt=</code> must be set on <code class="code">&lt;img&gt;</code> !</p>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>ARIA - tabindex, autofocus</h2>
+                <p>Ideally: Support tabbing through large pages/sections</p>
+                <p>Be aware: You can very easily make it a lot worse !</p>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>ARIA - role</h2>
                 <ul>
-                    <li>Use <code class="code">&lt;img&gt;</code> for photos only</li>
-                    <li>Do not use <code class="code">&lt;img&gt;</code> for theme, design and/or background images</li>
+                    <li>Can be used on any tag</li>
+                    <li>Mostly redundant/obsolete with HTML 5</li>
+                    <li>Use only where useful / meaningful</li>
+                    <li>Screenreads will probably ignore it</li>
                 </ul>
             </section>
             <section>
-                <h2>Table</h2>
-                <p>This tag is meant for content only</p>
+                <h2>ARIA - role</h2>
+                <p>Good examples</p>
+                <pre>
+                    <code class="hljs html" data-trim contenteditable data-noescape spellcheck="false">
+                        &lt;fieldset role="search"&gt;...&lt;/fieldset&gt;
+                        &lt;div role="banner"&gt;...&lt;/div&gt;
+                        &lt;img role="livecam"...&gt;
+                        &lt;img role="decorative"...&gt;
+                        &lt;div role="glossary"&gt;...&lt;/div&gt;
+                        &lt;div role="alert"&gt;...&lt;/div&gt;
+                        &lt;div role="dialog"&gt;...&lt;/div&gt;
+                    </code>
+                </pre>
+            </section>
+            <section>
+                <h2>ARIA - role</h2>
+                <p>Bad examples</p>
+                <pre>
+                    <code class="hljs html" data-trim contenteditable data-noescape spellcheck="false">
+                        &lt;p role="text"&gt;...&lt;/p&gt;
+                        &lt;a role="link"&gt;...&lt;/p&gt;
+                        &lt;input type="radio" role="radio"&gt;...&gt;
+                        &lt;nav role="navigation"&gt;...&gt;
+                    </code>
+                </pre>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>HTML5 - New tags</h2>
                 <ul>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
+                    <li>Time: <code class="code">&lt;time&gt;12:34&lt;/time&gt;</code></li>
+                    <li>Postal Address: <code class="code">&lt;address&gt;...</code></li>
+                    <li>Numeric range: <code class="code">&lt;meter&gt;...</code></li>
+                    <li>...</li>
+                </ul>
+                <p>Microformat might be an alternative.</p>
+            </section>
+            <section>
+                <h2>HTML5 - Old tags</h2>
+                <p>Don't use only CSS for those ...</p>
+                <ul>
+                    <li>Abbreviations: <code class="code">&lt;abbr&gt;...</code></li>
+                    <li>Citation: <code class="code">&lt;cite&gt;...</code></li>
+                    <li>Code: <code class="code">&lt;code&gt;...</code></li>
+                    <li>Super/Subscript: <code class="code">&lt;sup&gt;...</code>, <code class="code">&lt;sub&gt;...</code></li>
                 </ul>
             </section>
+            <section>
+                <h2>HTML5 - Emphasis</h2>
+                <ul>
+                    <li><code class="code">&lt;bold&gt;</code></li>
+                    <li><code class="code">&lt;strong&gt;</code></li>
+                    <li><code class="code">&lt;em&gt;</code></li>
+                </ul>
+            </section>
+        </section>
+        <section>
             <section>
                 <h2>Semantic pitfalls</h2>
                 <p>Never ever nest the following tags ...</p>
@@ -569,6 +760,17 @@
                     <li><code class="code">&lt;dl&gt;</code> without enclosing <code class="code">&lt;dd&gt;</code></li>
                 </ul>
             </section>
+            <section>
+                <h2>Semantic pitfalls</h2>
+                <ul>
+                    <li>Always provide <code class="code">alt=</code> for images</li>
+                    <li>Avoid <code class="code">href="javascript:..."</code></li>
+                    <li>Avoid empty <code class="code">href=""</code> or <code class="code">href="#"</code></li>
+                    <li>Avoid empty tags <code class="code">&lt;p&gt;  &lt;/p&gt;</code></li>
+                    <li>Contrast-ful styles for <code class="code">:focus</code> and <code class="code">:hover</code></li>
+                    <li>Ignored: <code class="code">display:none</code> and <code class="code">visibility:hidden</code></li>
+                </ul>
+            </section>
         </section>
         <section>
             <section>
@@ -602,6 +804,7 @@
         <section>
             <section>
                 <h2>Anti-References</h2>
+                <p>Good enough to check what is possible / available</p>
                 <ul>
                     <li>W3cSchool</li>
                     <li>TutorialPoint</li>
@@ -618,6 +821,7 @@
                     <li><a href="https://www.w3.org/WAI/standards-guidelines/wcag/">W3C-WAI: WCAG specs</a></li>
                     <li><a href="https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Cross_browser_testing/Accessibility#screenreaders">MDN Testing Screenreaders</a></li>
                     <li><a href="https://webkit.org/blog/3302/aria-and-accessibility-inspector/">Webkit Accessibility</a></li>
+                    <li><a href="https://www.w3.org/WAI/PF/HTML/wiki/RoleAttribute#A_reference_list_of_role_keywords">role= attribute</a></li>
                 </ul>
             </section>
         </section>
