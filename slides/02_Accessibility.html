@@ -4,23 +4,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>02 Accessibility | HTML 5 - Accessibility</title>
-
     <link rel="icon" href="../img/zuehlke_logo.jpg">
-    <link rel="stylesheet" href="../css/reveal.css">
-    <link rel="stylesheet" href="../css/theme/zuehlke.css">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/webplatformz/zuehlke-reveal-package@aa0782bae9e270f4153d310e9f42bea172788e21/release/index.css">
 
-    <!-- Theme used for syntax highlighting of code -->
-    <link rel="stylesheet" href="../lib/css/monokai.css">
-
-    <!-- Printing and PDF exports -->
-    <script>
-        var link = document.createElement('link');
-        link.rel = 'stylesheet';
-        link.type = 'text/css';
-        link.href = window.location.search.match(/print-pdf/gi) ? '../css/print/pdf.css' : '../css/print/paper.css';
-        document.getElementsByTagName('head')[0].appendChild(link);
-    </script>
+    <title>02 Accessibility | HTML 5 - Accessibility</title>
 </head>
 <body>
 <div class="reveal">
@@ -142,25 +130,9 @@
     </div>
 </div>
 
-<script src="../js/reveal.js"></script>
-
+<script src="https://cdn.jsdelivr.net/gh/webplatformz/zuehlke-reveal-package@aa0782bae9e270f4153d310e9f42bea172788e21/release/index.js"></script>
 <script>
-    // More info https://github.com/hakimel/reveal.js#configuration
-    Reveal.initialize({
-        history: true,
-
-        // More info https://github.com/hakimel/reveal.js#dependencies
-        dependencies: [
-            {src: '../plugin/markdown/marked.js'},
-            {src: '../plugin/markdown/markdown.js'},
-            {src: '../plugin/notes/notes.js', async: true},
-            {
-                src: '../plugin/highlight/highlight.js', async: true, callback: function () {
-                    hljs.initHighlightingOnLoad();
-                }
-            }
-        ]
-    });
+	setupZuehlkeRevealPresentation();
 </script>
 </body>
 </html>
